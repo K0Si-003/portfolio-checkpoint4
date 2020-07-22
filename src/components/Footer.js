@@ -1,10 +1,12 @@
 import React from 'react';
+import '../styles/footer.css';
 
 const Footer = () => {
   return (
-    <div>
-      <h1>Footer</h1>
-    </div>
+    <footer>
+      <i className="fab fa-github-square"></i>
+      <i className="fab fa-linkedin"></i>
+    </footer>
   )
 }
 

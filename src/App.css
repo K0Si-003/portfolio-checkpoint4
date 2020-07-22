@@ -1,3 +1,12 @@
+:root {
+  --darkGrey: #3F3F40;
+  --lightGrey: #474747;
+  --lighterGrey: rgb(199, 199, 199);
+  --green: rgb(10, 119, 68);
+  --heavyBoxShadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  --lightBoxShadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,5 +14,27 @@
 
 a {
   text-decoration: none;
-  color: white;
+  color: var(--lighterGrey);
 }
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-image: url('./images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+main {
+  position: relative;
+  left: 0;
+  top: 150px;
+  width: 100%;
+}
+
