@@ -5,15 +5,17 @@ const Project = () => {
   const [tags, setTags] = useState();
 
 useEffect(() => {
-  API.get(`/tags`)
+  API.get('/tags')
     .then(res => res.data)
-    .then(data => setTags(data));
+    .then(data => {
+      console.log(data);
+      setTags(data);
+    })
 }, []);
 
   return (
     <div>
       <h1>Projects</h1>
-      {tags.map(t => <p>{t.name}</p>)}
     </div>
   )
 }

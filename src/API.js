@@ -5,6 +5,4 @@ const API = axios.create({
   baseURL
 });
 
-export const defaultFetcher = (relativeUrl, options) => API(relativeUrl, options).then(res => res.data);
-
 export default API;
