@@ -3,22 +3,22 @@ import API from '../API';
 import ProjectDetails from './ProjectDetails';
 
 const Project = () => {
-  const [tags, setTags] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    API.get('/tags')
+    API.get('/projects')
       .then(res => res.data)
-      .then(data => setTags(data))
+      .then(data => setProjects(data))
   }, []);
 
-  if (!tags) {
-    return <p>Loading tags...</p>
+  if (!projects) {
+    return <p>Loading projects...</p>
   } else {
     return (
       <div>
         <h1>Projets</h1>
-        {tags.map(t => {
-          return <ProjectDetails key={t.id} apartmentDetails={t} />;
+        {projects.map(p => {
+          return <ProjectDetails key={p.id} projectDetails={p} />;
         })}
       </div>
     )
