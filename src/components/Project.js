@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import API from '../API';
-import ProjectDetails from './ProjectDetails';
+import '../styles/project.css';
+import ProjectItem from './ProjectItem';
 
 const Project = () => {
   const [projects, setProjects] = useState([]);
@@ -17,9 +18,9 @@ const Project = () => {
     return (
       <div>
         <h1>Projets</h1>
-        {projects.map(p => {
-          return <ProjectDetails key={p.id} projectDetails={p} />;
-        })}
+        <ul className='diamond-list'>
+          {projects.map(p => <li className={`diamond-item item${p.id}`}><ProjectItem key={p.id} projectItem={p} /></li>)}
+        </ul>
       </div>
     )
   }

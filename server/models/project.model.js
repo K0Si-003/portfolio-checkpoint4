@@ -17,18 +17,18 @@ class Project {
     p.name,
     p.details,
     p.img_url,
-    t.name
+    t.name AS tag
     FROM project p
     JOIN tag_by_project tp
-    ON tg.project_id = p.id
-    JOIN tag t
-    ON tg.tag_id = t.id
+    ON tp.project_id = p.id
+    LEFT JOIN tag t
+    ON tp.tag_id = t.id
     WHERE p.id = ?`, id)
     .then(rows => {
       if (rows.length) {
         const tabTag = [];
         rows.forEach(r => {
-          if (r.name) tabTag.push(r.name);
+          if (r.tag) tabTag.push(r.tag);
         });
         const p = rows[0];
         return Promise.resolve({
