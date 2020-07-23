@@ -1,0 +1,60 @@
+.diamond-list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  width: 600px;
+  height: 150px;
+}
+
+.diamond-list .diamond-item {
+  list-style: none;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  margin: -100px;
+  transform: rotate(45deg);
+  transition: .5s;
+  overflow: hidden;
+  opacity: .5;
+  background: #000;
+}
+
+.item-title {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 82px;
+  left: 2px;
+}
+
+.diamond-list .diamond-item:hover {
+  opacity: 1;
+}
+
+.diamond-list .diamond-item.item1{
+  top: 320px;
+  left: 150px;
+}
+
+.diamond-list .diamond-item.item2{
+
+  bottom: -320px;
+  left: 300px;
+}
+
+.diamond-list .diamond-item.item3 {
+  top: 0;
+  left: 50%;
+}
+
+.diamond-list .diamond-item.item4 {
+  bottom: 0;
+  left: 75%;
+}
+
+.diamond-list .diamond-item.item5 {
+  top: 0;
+  left: 100%;
+}

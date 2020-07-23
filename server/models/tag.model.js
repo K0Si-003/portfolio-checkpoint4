@@ -7,7 +7,7 @@ class Tag {
   }
 
   static async getAll () {
-    return db.query(`SELECT id, name FROM tag`);
+    return db.query(`SELECT * FROM tag`);
   }
 
 }
