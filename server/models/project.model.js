@@ -1,10 +1,6 @@
 const db = require('../db.js');
 
 class Project {
-/*   constructor (tag) {
-    this.id = tag.id;
-    this.name = tag.name;
-  } */
 
   static async getAll () {
     return db.query(`SELECT * FROM project`);
@@ -45,6 +41,34 @@ class Project {
       }
     });
   }
+
+  static async create (newProject) {
+    return db.query('INSERT INTO project SET ?', [newProject])
+      .then(res => {
+        newProject.id = res.insertId;
+        return newProject;
+      });
+  }
+
+  static async update (id, project) {
+    return db.query(
+      'UPDATE project SET name = ?, details = ?, img_url = ? WHERE id = ?',
+      [project.name, project.details, project.img_url, id]
+    );
+  }
+
+  static async delete (id) {
+    return db.query('DELETE FROM project WHERE id = ?', [id]).then(res => {
+      if (res.affectedRows !== 0) {
+        return Promise.resolve();
+      } else {
+        const err = new Error();
+        err.kind = 'not_found';
+        return Promise.reject(err);
+      }
+    });
+  }
+
 }
 
 module.exports = Project;
